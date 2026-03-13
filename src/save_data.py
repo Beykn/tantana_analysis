@@ -1,8 +1,9 @@
 import pandas as pd 
 from datetime import datetime
 import os 
+from config import TARGET_USERNAME
 
-def save_username_to_csv(username_list, target_account):
+def save_username_to_csv(username_list, target_account = TARGET_USERNAME):
     
     current_date = datetime.now().strftime("%Y-%m-%d")
     
@@ -16,7 +17,7 @@ def save_username_to_csv(username_list, target_account):
     df.to_csv(filename, index=False, encoding='utf-8')
     print(f"Data saved to {filename}")
     
-def save_count_to_csv(count, target_account):
+def save_count_to_csv(count, target_account = TARGET_USERNAME):
     
     current_date = datetime.now().strftime("%Y-%m-%d")
     
