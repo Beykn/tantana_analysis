@@ -27,7 +27,7 @@ def save_count_to_csv(count, target_account = TARGET_USERNAME):
     }
     
     df = pd.DataFrame(data)
-    filename = f"data/{target_account}_follower_count_{current_date}.csv"
+    filename = f"data/{target_account}_follower_history.csv"
     
     if not os.path.exists('data'):
         os.makedirs('data')
@@ -35,6 +35,5 @@ def save_count_to_csv(count, target_account = TARGET_USERNAME):
     if not os.path.isfile(filename):
         df.to_csv(filename, index=False, encoding='utf-8')
     else:
-        df.to_csv(filename, mode='a', header=False, index=False, encoding='utf-8')
-    
+        df.to_csv(filename, mode='a', header=False, index=False, encoding='utf-8')    
     print(f"Follower count saved to {filename}")
