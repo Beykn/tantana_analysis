@@ -32,5 +32,4 @@ jobs:
           git config --global user.name 'GitHub Action Bot'
           git config --global user.email 'action@github.com'
           git add data/*.csv
-          git commit -m "Automated daily update" || echo "No changes to commit"
-          git push origin main
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Automated daily update" && git push origin main)
